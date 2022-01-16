@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
+import { StreamChat } from "stream-chat";
+import { Chat } from "stream-chat-react";
+import Cookies from "universal-cookie";
+
+const apiKey = "dp9m3ppc4u7h";
+
+const client = StreamChat.getInstance(apiKey);
 
 const App = () => {
-    return (
-        <div>
-            <h1>Chat App</h1>
-        </div>
-    )
-}
-
-export default App
+  return (
+    <div className="app__wrapper">
+      <Chat client={client} theme="team light">
+        <ChannelListContainer />
+        <ChannelContainer />
+      </Chat>
+    </div>
+  );
+};
+export default App;
